@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+.container{
+  width: 100%;
+  margin: auto;
+  margin-top: 12px;
+}
+
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+.marquee {
+  animation: marquee 9s linear infinite;
+}
+
+@keyframes fadeInUp {
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity: 1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeInRight{
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+.scroll-left {
+  
+  animation: scrollLeft 5s linear infinite;
+}
+
+
+
+.image-scroll-container {
+  position: relative;
+}
+
+
+.image-scroll-container::before,
+.image-scroll-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4rem; 
+  z-index: 10;
+}
+
+.image-scroll-container::before {
+  left: 0;
+  background: linear-gradient(to right, #f2ebe9, transparent);
+}
+
+.image-scroll-container::after {
+  right: 0;
+  background: linear-gradient(to left, #e9e2df, transparent);
+}
