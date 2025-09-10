@@ -24,6 +24,7 @@ const Header = () => {
         <div className='marquee whitespace-nowrap'>
             <span className='mx-4 text-sm font-semibold'>Welcome to the Bazaar! Enjoy a special inaugural offer on your first piece of heritage.</span>
             <span className="mx-4 text-sm font-semibold">Welcome to the Bazaar! Enjoy a special inaugural offer on your first piece of heritage.</span>
+            <span className="mx-4 text-sm font-semibold">Welcome to the Bazaar! Enjoy a special inaugural offer on your first piece of heritage.</span>
         </div>
       </div>
 
