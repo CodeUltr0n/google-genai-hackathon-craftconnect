@@ -14,13 +14,13 @@ import ShopsPage from './components/shops';
 import AuthPage from './components/Auth'; 
 import CategoriesPage from './features/components/CategoriesPage'; 
 
-
+import SellerDashboard from './features/seller-dashboard';
 import CustomerDashboard from './features/customer-dashboard';
 
 // --- Placeholder components for other pages ---
 const About = () => <div className="container mx-auto p-8">About Page</div>;
 // // const CustomerDashboard = () => <div className="container mx-auto p-8">Welcome, Customer!</div>;
-const SellerDashboard = () => <div className="container mx-auto p-8">Welcome, Seller!</div>;
+// const SellerDashboard = () => <div className="container mx-auto p-8">Welcome, Seller!</div>;
 
 
 
@@ -52,12 +52,6 @@ function App() {
           <Route path="/signin/customer" element={<AuthPage userType="customer" />} />
           <Route path="/signin/seller" element={<AuthPage userType="seller" />} />
 
-          {/* --- Specific Sub-routes for the Customer Dashboard --- */}
-        {/* These ensure that clicking on "Orders", "Favorites", etc. works */}
-        {/* <Route path="/customer-dashboard/OrderHistory" element={<CustomerDashboard />} />
-        <Route path="/customer-dashboard/favorites" element={<CustomerDashboard />} />
-        <Route path="/customer-dashboard/messages" element={<CustomerDashboard />} />
-        <Route path="/customer-dashboard/account" element={<CustomerDashboard />} /> */}
           
           {/* --- Protected Routes (Temporarily Disabled) --- */}
           {/* To re-enable, just uncomment the <ProtectedRoute> wrapper. */}
@@ -69,14 +63,14 @@ function App() {
               // </ProtectedRoute>
             } 
           />
-          {/* <Route 
+          <Route 
             path="/seller" 
             element={
               // <ProtectedRoute>
                 <SellerDashboard />
               // </ProtectedRoute>
             } 
-          /> */}
+          />
         </Routes>
       </main>
       

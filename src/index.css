@@ -80,3 +80,13 @@
   right: 0;
   background: linear-gradient(to left, #e9e2df, transparent);
 }
+
+/* In your globals.css or tailwind.css */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}

@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import OrderHistory from './components/OrderHistory';
 import FavoritesPage from './components/FavoritesPage';
 import { Player } from '@lottiefiles/react-lottie-player';
-import catLoader from '../../assets/animations/cat Mark loading.json'; 
+import Marketplace from '../../assets/animations/marketplace.json'; 
 import Messages from './components/MessagePage';
 import Settings from './components/SettingsPage';
 
@@ -54,25 +54,30 @@ const CustomerDashboard = () => {
             };
              setCurrentUser(fetchedUserData);
       setIsLoading(false);
-    }, 2000);
+    }, 3000);
   }, []);
 // --- STEP 4: Handle the loading state ---
     // If the data hasn't loaded yet, we show a simple loading message.
   if (isLoading) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-        <Player
-          autoplay
-          loop
-          src={catLoader}
-          style={{ height: 200, width: 200 }}
-        />
-        <p
-          className="text-orange-500 text-2xl tracking-wider italic mt-4"
-          style={{ fontFamily: "'Arial Rounded MT Bold', Arial, sans-serif" }}
-        >
-          Loading Dashboard...
-        </p>
+      <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+        <div className="flex flex-col items-center space-y-6">
+          <Player
+            autoplay
+            loop
+            src={Marketplace}
+            className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 animate-fade-in"
+          />
+          <p
+            className="text-orange-500 text-2xl sm:text-3xl font-bold tracking-wider italic animate-pulse"
+            style={{ fontFamily: "'Arial Rounded MT Bold', Arial, sans-serif" }}
+          >
+            Loading Dashboard...
+          </p>
+          <p className="text-gray-500 text-sm sm:text-base">
+            Please wait while we prepare your personalized experience.
+          </p>
+        </div>
       </div>
     );
   }
@@ -131,44 +136,121 @@ const ProfileInformation = ({ user }) => {
         }
     };
 
-    const handleSaveChanges = () => {
-        console.log("Saving data:", { formData, profileImage });
-        alert("Changes saved! (Check the console for data)");
+    const handleSaveChanges = async () => {
+        try {
+            const data = new FormData();
+            data.append('firstName', formData.firstName);
+            data.append('lastName', formData.lastName);
+            data.append('email', formData.email);
+            data.append('bio', formData.bio);
+            if (profileImage) {
+                data.append('profileImage', profileImage);
+            }
+
+            const response = await fetch('/api/customer/update-profile', {
+                method: 'POST',
+                body: data,
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to update profile');
+            }
+
+            const result = await response.json();
+
+            if (result.profileImageUrl) {
+                setImagePreview(result.profileImageUrl);
+            }
+
+            alert('Profile updated successfully!');
+        } catch (error) {
+            alert('Error updating profile: ' + error.message);
+        }
     };
 
     return (
-        <div className="bg-white rounded-lg shadow-sm p-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-6">Profile Information</h2>
-            <div className="flex items-center space-x-5 mb-8">
-                <div className="h-20 w-20 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
-                    {imagePreview ? (<img src={imagePreview} alt="Preview" className="h-full w-full object-cover" />) : (<span className="text-gray-500 text-2xl font-bold">{user.initials}</span>)}
+        <div className="bg-white rounded-lg shadow-md p-10 max-w-3xl mx-auto">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-8">Profile Information</h2>
+            <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-10 mb-10">
+                <div className="relative h-24 w-24 rounded-full overflow-hidden border-4 border-indigo-500 shadow-lg">
+                    {imagePreview ? (
+                        <img src={imagePreview} alt="Preview" className="h-full w-full object-cover" />
+                    ) : (
+                        <span className="text-gray-400 text-4xl font-extrabold flex items-center justify-center h-full w-full">{user.initials}</span>
+                    )}
                 </div>
-                <div>
+                <div className="flex flex-col items-center md:items-start">
                     <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/*" />
-                    <button onClick={() => fileInputRef.current.click()} className="font-medium text-indigo-600 hover:text-indigo-800">Change Photo</button>
-                    <p className="text-xs text-gray-500 mt-1">JPG, PNG, GIF. 1MB max.</p>
+                    <button
+                        onClick={() => fileInputRef.current.click()}
+                        className="px-5 py-2 bg-indigo-600 text-white rounded-lg font-semibold shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1 transition"
+                    >
+                        Change Photo
+                    </button>
+                    <p className="text-xs text-gray-500 mt-2 max-w-xs text-center md:text-left">Allowed formats: JPG, PNG, GIF. Max size: 1MB.</p>
                 </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                    <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="flex flex-col">
+                    <label htmlFor="firstName" className="mb-2 font-medium text-gray-700">First Name</label>
+                    <input
+                        id="firstName"
+                        type="text"
+                        name="firstName"
+                        placeholder="Enter your first name"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        className="border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                    />
+                    <small className="text-gray-400 mt-1">Your given name</small>
                 </div>
-                <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                    <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
+                <div className="flex flex-col">
+                    <label htmlFor="lastName" className="mb-2 font-medium text-gray-700">Last Name</label>
+                    <input
+                        id="lastName"
+                        type="text"
+                        name="lastName"
+                        placeholder="Enter your last name"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        className="border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                    />
+                    <small className="text-gray-400 mt-1">Your family name</small>
                 </div>
-                <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
+                <div className="md:col-span-2 flex flex-col">
+                    <label htmlFor="email" className="mb-2 font-medium text-gray-700">Email Address</label>
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                    />
+                    <small className="text-gray-400 mt-1">We'll never share your email.</small>
                 </div>
-                <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Your Bio</label>
-                    <textarea name="bio" rows="3" value={formData.bio} onChange={handleInputChange} placeholder="Tell us about your interest in Indian crafts..." className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                <div className="md:col-span-2 flex flex-col">
+                    <label htmlFor="bio" className="mb-2 font-medium text-gray-700">Your Bio</label>
+                    <textarea
+                        id="bio"
+                        name="bio"
+                        rows="4"
+                        placeholder="Tell us about your interest in Indian crafts..."
+                        value={formData.bio}
+                        onChange={handleInputChange}
+                        className="border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                    ></textarea>
+                    <small className="text-gray-400 mt-1">A brief introduction about yourself.</small>
                 </div>
-            </div>
-            <div className="mt-8 pt-5 border-t border-gray-200 text-right">
-                <button onClick={handleSaveChanges} className="bg-indigo-600 text-white font-medium py-2.5 px-6 rounded-lg shadow hover:bg-indigo-700 transition-colors">Save Changes</button>
+            </form>
+            <div className="mt-10 text-right">
+                <button
+                    onClick={handleSaveChanges}
+                    className="inline-block bg-indigo-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-400 focus:ring-opacity-50 transition"
+                >
+                    Save Changes
+                </button>
             </div>
         </div>
     );

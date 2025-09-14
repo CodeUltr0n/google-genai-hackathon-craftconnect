@@ -14,18 +14,16 @@ const AiIcon = () => <svg className="w-5 h-5" fill="none" stroke="currentColor" 
 const SwitchIcon = () => <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>;
 const LogoutIcon = () => <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>;
 
-
-
+// <Sidebar /> should only be mounted once in the layout to prevent duplicates
 const Sidebar = ({ user }) => {
   if (!user) return null;
 // --- Link Data ---
 const sellerLinks = [
   { name: 'Dashboard', href: '/seller-dashboard', icon: <DashboardIcon /> },
-  { name: 'Orders', href: '#', icon: <OrdersIcon /> },
-  { name: 'Products', href: '#', icon: <ProductsIcon /> },
-  { name: 'Messages', href: '#', icon: <MessagesIcon />, badge: user.favoritesCount },
-  { name: 'Analytics', href: '#', icon: <AnalyticsIcon /> },
-  { name: 'AI Assistant', href: '#', icon: <AiIcon />, badge: 'New' },
+  { name: 'Orders', href: '/seller-dashboard/orders', icon: <OrdersIcon /> },
+  { name: 'Products', href: '/seller-dashboard/products', icon: <ProductsIcon /> },
+  { name: 'Messages', href: '/seller-dashboard/messages', icon: <MessagesIcon />, badge: user.unreadMessagesCount },
+  { name: 'Analytics', href: '/seller-dashboard/analytics', icon: <AnalyticsIcon /> },
 ];
 
 const customerLinks = [
@@ -70,7 +68,7 @@ const customerLinks = [
           <NavLink
             key={link.name}
             to={link.href}
-            end={link.href === '/customer-dashboard'}
+            end={link.href === '/customer-dashboard' || link.href === '/seller-dashboard'}
             className={({ isActive }) => `
               flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-colors
               ${
@@ -80,23 +78,14 @@ const customerLinks = [
               }
             `}
           >
-            {/* --- THIS IS THE FIX --- */}
-            {/* We wrap the content in a function to get access to the 'isActive' state */}
-            {({ isActive }) => (
-              <>
-                {link.icon}
-                <span className="ml-3 flex-1">{link.name}</span>
-                {link.badge && link.badge > 0 && (
-                  <span
-                    // The className is now a simple string, and 'isActive' is available here
-                    className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                      isActive ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'
-                    }`}
-                  >
-                    {link.badge}
-                  </span>
-                )}
-              </>
+            {link.icon}
+            <span className="ml-3 flex-1">{link.name}</span>
+            {link.badge && link.badge > 0 && (
+              <span
+                className="text-xs font-semibold px-2 py-0.5 rounded-full bg-gray-200 text-gray-700"
+              >
+                {link.badge}
+              </span>
             )}
           </NavLink>
         ))}
@@ -104,14 +93,14 @@ const customerLinks = [
 
       {/* Bottom Actions with updated hover styles */}
       <div className="px-4 py-4 border-t border-gray-200">
-        <a href="#" className="flex items-center px-4 py-3 rounded-lg text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900">
+        <a href={user.type === 'customer' ? '/signin/seller' : '/signin/customer'} className="flex items-center px-4 py-3 rounded-lg text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900">
             <SwitchIcon />
-            <span className="ml-3">Switch to Seller</span>
+            <span className="ml-3">{user.type === 'customer' ? 'Switch to Seller' : 'Switch to Customer'}</span>
         </a>
-        <a href="#" className="flex items-center px-4 py-3 rounded-lg text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900">
+        <button type="button" className="flex items-center px-4 py-3 rounded-lg text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900">
             <LogoutIcon />
             <span className="ml-3">Log Out</span>
-        </a>
+        </button>
       </div>
     </div>
   );
