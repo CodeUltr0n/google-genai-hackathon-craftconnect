@@ -27,8 +27,7 @@ export const AuthProvider = ({ children }) => {
     setUser({ token: null, role: null });
     localStorage.removeItem('token');
     localStorage.removeItem('role');
-    // When you're ready, remove the hardcoded token above and use this line:
-    // navigate('/signin');
+    navigate('/');
   };
 
   const isLoggedIn = !!token;

@@ -5,6 +5,10 @@ import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './components/AuthenticateContext'; 
 // import ProtectedRoute from './components/ProtectedRouteComponent'; 
 
+import { CartProvider } from "./features/customer-dashboard/components/CartProvider";
+import { ToastContainer } from "react-toastify";
+import CartPage from './features/customer-dashboard/components/CartPage';
+
 import Header from './components/header';
 import Hero from './components/hero/hero';
 // import FeaturedCrafts from './components/featured-crafts';
@@ -18,9 +22,12 @@ import SellerDashboard from './features/seller-dashboard';
 import CustomerDashboard from './features/customer-dashboard';
 import AddProductForm from './features/seller-dashboard/components/AddNewProduct';
 import ProductDetailPage from './components/ProductDetails';
+import CategoryDetails from './features/components/CategoriesDetails';
+import About from './components/AboutPage';
+import EditCraft from './features/seller-dashboard/components/EditCraft';
 
 // --- Placeholder components for other pages ---
-const About = () => <div className="container mx-auto p-8">About Page</div>;
+// const About = () => <div className="container mx-auto p-8">About Page</div>;
 // // const CustomerDashboard = () => <div className="container mx-auto p-8">Welcome, Customer!</div>;
 // const SellerDashboard = () => <div className="container mx-auto p-8">Welcome, Seller!</div>;
 
@@ -47,64 +54,70 @@ const HomePage = () => (
 function App() {
   return (
     <AuthProvider>
-      <Header />
-      <main>
-        <Routes>
-          {/* --- Public Routes --- */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/shop" element={<ShopsPage />} />
-          <Route path="/categories" element={<CategoriesPage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/customer-dashboard/*" element={<CustomerDashboard/> } />
-          <Route path='/seller-dashboard/*' element = {<SellerDashboard/>} /> 
-          {/* <Route path="/signin" element={<AuthPage />} />
-          <Route path="/signup" element={<AuthPage />} /> */}
+      <CartProvider>
+        <Header />
+        <main>
+          <Routes>
+            {/* --- Public Routes --- */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/shop" element={<ShopsPage />} />
+            <Route path="/categories" element={<CategoriesPage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/customer-dashboard/*" element={<CustomerDashboard/> } />
+            <Route path='/seller-dashboard/*' element = {<SellerDashboard/>} /> 
+            {/* <Route path="/signin" element={<AuthPage />} />
+            <Route path="/signup" element={<AuthPage />} /> */}
 
 
-          <Route path="/signin/customer" element={<AuthPage userType="customer" />} />
-          <Route path="/signin/seller" element={<AuthPage userType="seller" />} />
+            <Route path="/signin/customer" element={<AuthPage userType="customer" />} />
+            <Route path="/signin/seller" element={<AuthPage userType="seller" />} />
 
-          
-          {/* --- Protected Routes (Temporarily Disabled) --- */}
-          {/* To re-enable, just uncomment the <ProtectedRoute> wrapper. */}
-          <Route 
-            path="/customer" 
-            element={
-              // <ProtectedRoute>
-                <CustomerDashboard />
-              //  </ProtectedRoute>
-            } 
-          />
-          <Route 
-            path="/seller" 
-            element={
-              // <ProtectedRoute>
-                <SellerDashboard />
-              //  </ProtectedRoute>
-            } 
-          />
+            
+            {/* --- Protected Routes (Temporarily Disabled) --- */}
+            {/* To re-enable, just uncomment the <ProtectedRoute> wrapper. */}
+            <Route 
+              path="/customer" 
+              element={
+                // <ProtectedRoute>
+                  <CustomerDashboard />
+                //  </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/seller" 
+              element={
+                // <ProtectedRoute>
+                  <SellerDashboard />
+                //  </ProtectedRoute>
+              } 
+            />
 
 
-           {/* 2. ADD THIS NEW PROTECTED ROUTE FOR THE FORM */}
-          <Route
-            path="/seller-form"
-            element={
-              // <ProtectedRoute>
-                <AddProductForm />
-              /* </ProtectedRoute> */
-            }
-          />
+             {/* 2. ADD THIS NEW PROTECTED ROUTE FOR THE FORM */}
+            <Route
+              path="/seller-form"
+              element={
+                // <ProtectedRoute>
+                  <AddProductForm />
+                /* </ProtectedRoute> */
+              }
+            />
 
-          {/* This route will match any URL like /product/prod_123, /product/abc, etc. */}
-          <Route path="/shop/:productId" element={<ProductDetailPage />} />
-        </Routes>
-      </main>
-      
-      <Footer />
+            <Route path="/edit-craft/:craftId" element={<EditCraft />} />
+
+            {/* This route will match any URL like /product/prod_123, /product/abc, etc. */}
+            <Route path="/shop/:productId" element={<ProductDetailPage />} />
+
+             <Route path="/category/:categoryName" element={<CategoryDetails />} />
+
+             <Route path="/cart" element={<CartPage />} />
+          </Routes>
+        </main>
+        <ToastContainer position="top-right" autoClose={2000} />
+        <Footer />
+      </CartProvider>
     </AuthProvider>
   );
 }
 
 export default App;
-
-

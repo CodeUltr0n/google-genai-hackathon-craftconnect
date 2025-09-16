@@ -41,3 +41,5 @@ const ProductCard = ({ id, name, artisan, price, imageUrl, regionTag, craftTag, 
 
 export default ProductCard;
 
+
+

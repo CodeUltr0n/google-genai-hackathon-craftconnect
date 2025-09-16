@@ -17,7 +17,8 @@ const OptimizationTab = () => {
         setTimeout(() => {
             const mockData = [
                 { title: "Improve Product Photos", impact: "High Impact", description: "Your vase photos need better lighting.", suggestion: "Add lifestyle photos showing the vase in use." },
-                { title: "Enhance Product Descriptions", impact: "Medium Impact", description: "Add details about materials and dimensions.", suggestion: "Include a story about the craftsmanship." }
+                { title: "Enhance Product Descriptions", impact: "Medium Impact", description: "Add details about materials and dimensions.", suggestion: "Include a story about the craftsmanship." },
+                { title: "Optimize Keywords", impact: "High Impact", description: "Add trending keywords like 'boho decor' and 'handcrafted ceramics'.", suggestion: "Update product tags and titles" }
             ];
             setRecommendations(mockData);
             setIsLoading(false);
@@ -102,7 +103,8 @@ const MarketingTab = () => {
         setTimeout(() => {
             const mockData = [
                 { platform: "Instagram", idea: "Post behind-the-scenes content of your pottery process.", impact: "+45% Engagement" },
-                { platform: "Seasonal", idea: "Create a Valentine's Day collection featuring your ceramics.", impact: "Launch in 2 weeks" }
+                { platform: "Seasonal", idea: "Create a Valentine's Day collection featuring your ceramics.", impact: "Launch in 2 weeks" },
+                { platform: "Customer Reviews", idea: "Reach out to recent customers for reviews. You have a 92% satisfaction rate.", impact: "Start follow-up campaign" }
             ];
             setIdeas(mockData);
             setIsLoading(false);
@@ -201,6 +203,3 @@ const AiGrowthAssistantModal = ({ onClose }) => {
 };
 
 export default AiGrowthAssistantModal;
-
-
-

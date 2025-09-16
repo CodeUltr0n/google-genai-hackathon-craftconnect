@@ -31,7 +31,7 @@ const Myproducts = ()=>{
 
         /// mock data for testing 
         const MockdatafromDB = [
-           { id: 'prod_123', name: 'Blue Pottery Vase', price: 2500, stock: 15, status: 'Active', imageUrl: '/images/Blue pottery.jpeg' },
+           { id:  'prod_123', name: 'Blue Pottery Vase', price: 2500, stock: 15, status: 'Active', imageUrl: '/images/Blue pottery.jpeg' },
               { id: 'prod_124', name: 'Bandhani Silk Dupatta', price: 3200, stock: 8, status: 'Active', imageUrl: '/images/Bandhani Silk Dupatta.jpeg' },
               { id: 'prod_125', name: 'Chikankari Kurta', price: 2800, stock: 22, status: 'Active', imageUrl: '/images/Chikankari Kurta.jpeg' },
               { id: 'prod_126', name: 'Kutch Mirror Work Bag', price: 1800, stock: 0, status: 'Sold Out', imageUrl: '/images/Kutch Mirror Work Bag.jpeg' },
@@ -115,7 +115,10 @@ const Myproducts = ()=>{
 
               {/* Actions */}
               <div className="flex justify-center space-x-3">
-                <button className="px-4 py-2 text-sm rounded-md bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <button
+                  onClick={() => navigate(`/edit-craft/${product.id}`)}
+                  className="px-4 py-2 text-sm rounded-md bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
                   Edit
                 </button>
                 <button className="px-4 py-2 text-sm rounded-md bg-red-600 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">
