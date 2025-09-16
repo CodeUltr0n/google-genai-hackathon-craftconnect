@@ -12,6 +12,7 @@ import SellerOrders from './components/SellerOrder';
 import AiAssistant from './components/AigrowthAssistant';
 import Messages from './components/Messages';
 import Analytics from './components/Analytics';
+import AddNewProduct from './components/AddNewProduct';
 
 
 
@@ -55,7 +56,9 @@ const SellerDashboard = () => {
                     <Routes>
                         <Route path="/" element={<ShopProfileWithLoader user={currentSeller} />} />
                         {/* <Route path='/seller-dashboard' element={<ShopProfile user={currentSeller}/>}></Route> */}
-                        <Route path="/products" element={<MyProducts />} />
+                        <Route path="/products" element={<MyProducts />}>
+                        </Route>    
+                        <Route path="/seller-form" element={<AddNewProduct />} />
                         <Route path="/orders" element={<SellerOrders />} />
                         <Route path="/analytics" element={<Analytics />} />
                         <Route path="/messages" element={<Messages />} />

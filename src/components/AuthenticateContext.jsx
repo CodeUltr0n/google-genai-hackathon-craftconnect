@@ -8,12 +8,15 @@ export const AuthProvider = ({ children }) => {
   // We are temporarily setting a fake token to simulate a logged-in user.
   // This makes `isLoggedIn` true by default.
   const [token, setToken] = useState('temp-developer-token'); // Previously: useState(localStorage.getItem('token') || null)
+  const [user, setUser] = useState({ token: 'temp-developer-token', role: localStorage.getItem('role') || 'customer' });
   
   const navigate = useNavigate();
 
   const login = (newToken) => {
     setToken(newToken);
+    setUser({ token: newToken, role: 'customer' });
     localStorage.setItem('token', newToken);
+    localStorage.setItem('role', 'customer');
     navigate('/seller');
   };
 
@@ -21,15 +24,24 @@ export const AuthProvider = ({ children }) => {
     // For development, we'll make logout reload the page to clear the state.
     // Or, more robustly:
     setToken(null);
+    setUser({ token: null, role: null });
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
     // When you're ready, remove the hardcoded token above and use this line:
     // navigate('/signin');
   };
 
   const isLoggedIn = !!token;
 
+  const switchRole = (newRole) => {
+    if (!user.token) return; // Only switch if logged in
+    setUser({ ...user, role: newRole });
+    localStorage.setItem('role', newRole);
+    navigate(newRole === 'seller' ? '/seller-dashboard' : '/customer-dashboard');
+  };
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ user, isLoggedIn, login, logout, switchRole }}>
       {children}
     </AuthContext.Provider>
   );

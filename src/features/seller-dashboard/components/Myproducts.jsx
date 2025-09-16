@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const PageHeader = ({title,subtitle})=>{
+const PageHeader = ({ title, subtitle, onAddNew }) => {
     return (
-    <div className="mb-8">
-        <div className="mb-4">
+    <div className="mb-8 flex justify-between items-center">
+        <div>
             <h1 className="text-3xl font-bold text-gray-900">{title}</h1>
             <p className="text-gray-600 mt-1">{subtitle}</p>
         </div>
-        <button type="button" className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200
+        {/* 3. The button now calls the function passed via props to open the modal. */}
+        <button onClick={onAddNew} type="button" className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200
          hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium 
         rounded-lg text-sm px-5 py-2.5 
         text-center me-2 mb-2">Add New Craft
@@ -19,6 +21,7 @@ const PageHeader = ({title,subtitle})=>{
 const Myproducts = ()=>{
     const [products,setProducts] = useState([]);
     const[isLoading,setIsLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         const fetchProducts = async()=>{
@@ -56,7 +59,7 @@ const Myproducts = ()=>{
 
     return(
     <div>
-      <PageHeader title="My Craft Listings" subtitle="Manage your inventory and product details." />
+      <PageHeader title="My Craft Listings" subtitle="Manage your inventory and product details." onAddNew={() => navigate('/seller-form')} />
 
       <div className="bg-white rounded-lg shadow-md p-6">
         <div className="grid grid-cols-5 gap-4 border-b border-gray-200 pb-3 mb-4 text-gray-500 font-semibold text-sm">
@@ -123,6 +126,7 @@ const Myproducts = ()=>{
           ))}
         </div>
       </div>
+
     </div>
     )
 };

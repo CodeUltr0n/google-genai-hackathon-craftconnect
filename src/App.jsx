@@ -16,13 +16,25 @@ import CategoriesPage from './features/components/CategoriesPage';
 
 import SellerDashboard from './features/seller-dashboard';
 import CustomerDashboard from './features/customer-dashboard';
+import AddProductForm from './features/seller-dashboard/components/AddNewProduct';
+import ProductDetailPage from './components/ProductDetails';
 
 // --- Placeholder components for other pages ---
 const About = () => <div className="container mx-auto p-8">About Page</div>;
 // // const CustomerDashboard = () => <div className="container mx-auto p-8">Welcome, Customer!</div>;
 // const SellerDashboard = () => <div className="container mx-auto p-8">Welcome, Seller!</div>;
 
+// import { useAuth } from './components/AuthenticateContext';
+// import { Navigate } from 'react-router-dom';
 
+// const ProtectedRoute = ({ children, allowedRoles }) => {
+//   const { user } = useAuth();
+
+//   if (!user?.token) return <Navigate to="/signin/customer" />;
+//   if (!allowedRoles.includes(user.role)) return <Navigate to="/" />;
+  
+//   return children;
+// };
 
 const HomePage = () => (
   <>
@@ -60,7 +72,7 @@ function App() {
             element={
               // <ProtectedRoute>
                 <CustomerDashboard />
-              // </ProtectedRoute>
+              //  </ProtectedRoute>
             } 
           />
           <Route 
@@ -68,9 +80,23 @@ function App() {
             element={
               // <ProtectedRoute>
                 <SellerDashboard />
-              // </ProtectedRoute>
+              //  </ProtectedRoute>
             } 
           />
+
+
+           {/* 2. ADD THIS NEW PROTECTED ROUTE FOR THE FORM */}
+          <Route
+            path="/seller-form"
+            element={
+              // <ProtectedRoute>
+                <AddProductForm />
+              /* </ProtectedRoute> */
+            }
+          />
+
+          {/* This route will match any URL like /product/prod_123, /product/abc, etc. */}
+          <Route path="/shop/:productId" element={<ProductDetailPage />} />
         </Routes>
       </main>
       
