@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import ChatModal from './chatbot/chat';
+import { MessageCircle, Send, X,  Zap, User } from 'react-feather';
 
 const products = [
   { id: '1', name: 'Blue Pottery Vase', description: 'A beautiful, hand-painted ceramic vase from Jaipur, known for its vibrant blue dye derived from cobalt oxide. A perfect centerpiece for any room.', price: 2500, stock: 15, imageUrl: '/images/Blue pottery.jpeg', region: 'North India', artisan: 'Ravi Kumar', category: 'Pottery', regionTag: 'Rajasthan' },
@@ -15,7 +17,7 @@ const products = [
 const ProductDetailPage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
-
+  const [isChatOpen, setIsChatOpen] = useState(false);
   useEffect(() => {
     // For future integration with MongoDB + Express API:
     /*
@@ -76,6 +78,76 @@ const ProductDetailPage = () => {
               Add to Cart
             </button>
           </div>
+        </div>
+      </div>
+
+      {/* Floating Capsule Chat Button */}
+      <div className="fixed bottom-6 right-6 flex flex-col items-end z-50">
+        {/* Chat Modal */}
+        {isChatOpen && (
+          <ChatModal
+            apiEndpoint="/api/ai/product-query"
+            contextData={{ productId: product.id }}
+            initialMessage="Hello! How can I help you learn more about this specific craft?"
+            onClose={() => setIsChatOpen(false)}
+          />
+        )}
+
+        {/* Capsule FAB with Horizontal Animation */}
+        <div className="group relative">
+          <button
+            onClick={() => setIsChatOpen(!isChatOpen)}
+            className={`relative overflow-hidden bg-gradient-to-r from-slate-700 via-slate-800 to-blue-700 hover:from-slate-800 hover:via-slate-900 hover:to-blue-800 text-white rounded-full shadow-lg hover:shadow-xl subtle-glow-hover transition-all duration-500 transform hover:scale-105 ${
+              isChatOpen 
+                ? 'w-12 h-12 chat-button-collapsed' 
+                : 'w-auto chat-button-expanded'
+            }`}
+            style={{
+              transitionProperty: 'all, width, transform, box-shadow',
+              transitionDuration: '500ms',
+              transitionTimingFunction: 'cubic-bezier(0.23, 1, 0.320, 1)'
+            }}
+          >
+            <div className={`flex items-center justify-center transition-all duration-500 ${
+              isChatOpen 
+                ? 'px-0 py-3' 
+                : 'px-4 py-3 space-x-3'
+            }`}>
+              {!isChatOpen ? (
+                <>
+                  <MessageCircle size={18} className="flex-shrink-0" />
+                  <span className="text-sm font-medium whitespace-nowrap opacity-100 transition-opacity duration-300">
+                    Need help?
+                  </span>
+                </>
+              ) : (
+                <X size={18} className="transition-transform duration-300" />
+              )}
+            </div>
+
+            {/* Subtle glow effect */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-slate-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </button>
+
+          {/* Notification Dot */}
+          {!isChatOpen && (
+            <div className="absolute -top-1 -right-1">
+              <div className="relative">
+                <div className="w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow-sm animate-pulse"></div>
+                <div className="absolute inset-0 w-3 h-3 bg-blue-400 rounded-full animate-ping opacity-60"></div>
+              </div>
+            </div>
+          )}
+
+          {/* Tooltip */}
+          {!isChatOpen && (
+            <div className="absolute bottom-16 right-0 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 pointer-events-none">
+              <div className="bg-slate-800 text-white text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
+                Questions about this product?
+                <div className="absolute -bottom-1 right-4 w-2 h-2 bg-slate-800 transform rotate-45"></div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
