@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  // --- THIS IS THE CHANGE FOR DEVELOPMENT ---
+
   // We are temporarily setting a fake token to simulate a logged-in user.
   // This makes `isLoggedIn` true by default.
   const [token, setToken] = useState('temp-developer-token'); // Previously: useState(localStorage.getItem('token') || null)
@@ -22,7 +22,6 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     // For development, we'll make logout reload the page to clear the state.
-    // Or, more robustly:
     setToken(null);
     setUser({ token: null, role: null });
     localStorage.removeItem('token');
