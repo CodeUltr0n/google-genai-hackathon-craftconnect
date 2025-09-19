@@ -25,6 +25,8 @@ import ProductDetailPage from './components/ProductDetails';
 import CategoryDetails from './features/components/CategoriesDetails';
 import About from './components/AboutPage';
 import EditCraft from './features/seller-dashboard/components/EditCraft';
+import CheckoutPage from './components/checkout/CheckoutPage';
+import OrderConfirmation from './components/orders/OrderConfirmation';
 
 // --- Placeholder components for other pages ---
 // const About = () => <div className="container mx-auto p-8">About Page</div>;
@@ -109,8 +111,9 @@ function App() {
             <Route path="/shop/:productId" element={<ProductDetailPage />} />
 
              <Route path="/category/:categoryName" element={<CategoryDetails />} />
-
              <Route path="/cart" element={<CartPage />} />
+             <Route path="/checkout" element={<CheckoutPage />} />
+             <Route path="/order-confirmation" element={<OrderConfirmation />} />
           </Routes>
         </main>
         <ToastContainer position="top-right" autoClose={2000} />

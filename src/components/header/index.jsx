@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthenticateContext'; 
+import { useCart } from '../../features/customer-dashboard/components/useCart';
 import UserDropdown from "../UserDropdown";
 
 const publicLinks = [
@@ -17,6 +18,7 @@ const privateLinks = [
 
 const Header = () => {
   const { isLoggedIn, logout, user } = useAuth();
+  const { totalItems } = useCart() || { totalItems: 0 };
   const [search, setSearch] = React.useState("");
   const navigate = useNavigate();
 
@@ -90,16 +92,47 @@ const Header = () => {
                     className="w-72 pl-10 pr-4 py-2 border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
-                {/* Show cart SVG button only for customers */}
+                {/* Enhanced Cart Button with Count */}
                 {user?.role === 'customer' && (
                   <button 
                     onClick={() => navigate('/cart')} 
-                    className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                    className="relative p-2 rounded-full hover:bg-gray-100 transition-colors group"
                   >
-                    <svg className="w-6 h-6 text-black " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                      <path fillRule="evenodd" d="M4 4a1 1 0 0 1 1-1h1.5a1 1 0 0 1 .979.796L7.939 6H19a1 1 0 0 1 .979 1.204l-1.25 6a1 1 0 0 1-.979.796H9.605l.208 1H17a3 3 0 1 1-2.83 2h-2.34a3 3 0 1 1-4.009-1.76L5.686 5H5a1 1 0 0 1-1-1Z" clipRule="evenodd"/>
+                    <svg className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.1 5H19M7 13v6a2 2 0 002 2h6a2 2 0 002-2v-6M9 19v2m6-2v2" />
                     </svg>
+                    {totalItems > 0 && (
+                      <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center animate-pulse">
+                        {totalItems > 99 ? '99+' : totalItems}
+                      </span>
+                    )}
                   </button>
+                )}
+                
+                {/* Mini Cart Preview - Shows on hover */}
+                {user?.role === 'customer' && totalItems > 0 && (
+                  <div className="hidden group-hover:block absolute top-full right-0 mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                    <div className="p-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <h3 className="font-semibold text-gray-900">Cart ({totalItems})</h3>
+                        <button 
+                          onClick={() => navigate('/cart')}
+                          className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+                        >
+                          View All
+                        </button>
+                      </div>
+                      <p className="text-sm text-gray-600 text-center py-4">
+                        {totalItems} item{totalItems > 1 ? 's' : ''} in cart
+                      </p>
+                      <button
+                        onClick={() => navigate('/cart')}
+                        className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                      >
+                        Go to Cart
+                      </button>
+                    </div>
+                  </div>
                 )}
                 {/* /// TODO: Replace mock user data with real database user when backend is ready */}
                 <UserDropdown 

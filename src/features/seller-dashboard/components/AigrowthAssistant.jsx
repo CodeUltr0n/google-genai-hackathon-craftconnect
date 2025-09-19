@@ -1,135 +1,279 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// --- SVG Icons ---
+// --- Enhanced SVG Icons ---
 const CloseIcon = () => <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>;
-const OptimizationIcon = () => <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>;
-const PricingIcon = () => <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z" /></svg>;
-const MarketingIcon = () => <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.356a1.76 1.76 0 013.417-.592zM11 5.882V5.269a2.35 2.35 0 014.7.001v.613m0 0l2.147 6.356a1.76 1.76 0 01-3.417.592l-2.147-6.356a1.76 1.76 0 013.417-.592z" /></svg>;
+const OptimizationIcon = () => <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2zM12 15.4l-3.76 2-1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 3.71 4.38.38-3.32 2.88-1 4.28L12 15.4z" /></svg>;
+const PricingIcon = () => <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7 15h2c0 1.08 1.37 2 3 2s3-.92 3-2c0-1.1-1.04-1.5-3.24-2.03C9.64 12.44 7 11.78 7 9c0-1.79 1.47-3.31 3.5-3.82V3h3v2.18C15.53 5.69 17 7.21 17 9h-2c0-1.08-1.37-2-3-2s-3 .92-3 2c0 1.1 1.04 1.5 3.24 2.03C14.36 11.56 17 12.22 17 15c0 1.79-1.47 3.31-3.5 3.82V21h-3v-2.18C8.47 18.31 7 16.79 7 15z" /></svg>;
+const MarketingIcon = () => <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>;
+const ArrowRightIcon = () => <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>;
+const BulbIcon = () => <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17h8v-2.3c1.8-1.2 3-3.3 3-5.7 0-3.9-3.1-7-7-7z" /></svg>;
 
 // --- Tab Content Components ---
+// Default recommendations outside of state
+const defaultRecommendations = [
+    { 
+        title: "Improve Product Photos", 
+        impact: "High Impact", 
+        description: "Your ceramic vase photos could benefit from better lighting. Consider natural light photography.", 
+        suggestion: "Add lifestyle photos showing the vase in use",
+        expanded: false
+    },
+    { 
+        title: "Enhance Product Descriptions", 
+        impact: "Medium Impact", 
+        description: "Add more details about materials, dimensions, and care instructions.", 
+        suggestion: "Include story about craftsmanship",
+        expanded: false
+    },
+    { 
+        title: "Optimize Keywords", 
+        impact: "High Impact", 
+        description: "Add trending keywords to improve discoverability.", 
+        suggestion: "Update SEO keywords",
+        expanded: false
+    }
+];
+
 const OptimizationTab = () => {
     const [recommendations, setRecommendations] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isAnalyzing, setIsAnalyzing] = useState(false);
 
     const handleAnalyzeOptimization = () => {
-        setIsLoading(true);
+        setIsAnalyzing(true);
         setTimeout(() => {
-            const mockData = [
-                { title: "Improve Product Photos", impact: "High Impact", description: "Your vase photos need better lighting.", suggestion: "Add lifestyle photos showing the vase in use." },
-                { title: "Enhance Product Descriptions", impact: "Medium Impact", description: "Add details about materials and dimensions.", suggestion: "Include a story about the craftsmanship." },
-                { title: "Optimize Keywords", impact: "High Impact", description: "Add trending keywords like 'boho decor' and 'handcrafted ceramics'.", suggestion: "Update product tags and titles" }
-            ];
-            setRecommendations(mockData);
-            setIsLoading(false);
-        }, 1500);
+            setIsAnalyzing(false);
+            setRecommendations(defaultRecommendations);
+        }, 2000);
+    };
+
+    const toggleExpanded = (index) => {
+        setRecommendations(prev => 
+            prev.map((rec, i) => i === index ? { ...rec, expanded: !rec.expanded } : rec)
+        );
     };
 
     return (
-        <div>
-            <div className="text-center mb-6">
-                <button onClick={handleAnalyzeOptimization} disabled={isLoading} className="bg-indigo-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-indigo-700 disabled:bg-indigo-300 transition-colors">
-                    {isLoading ? 'Analyzing Listings...' : 'Analyze Product Listings'}
+        <div className="space-y-6">
+            <div>
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">Product Optimization</h2>
+                <p className="text-gray-600 text-sm mb-6">AI-powered suggestions to improve your product listings</p>
+                <button
+                    onClick={handleAnalyzeOptimization}
+                    className="px-4 py-2 mb-4 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                    disabled={isAnalyzing}
+                >
+                    {isAnalyzing ? 'Analyzing...' : 'Run Analysis'}
                 </button>
             </div>
-            {isLoading ? (
-                <div className="text-center text-gray-500">Generating optimization report...</div>
-            ) : (
-                <div className="space-y-4">
-                    {recommendations.map((rec, i) => (
-                        <div key={i} className="p-4 bg-gray-50 rounded-lg">
-                            <div className="flex justify-between items-center mb-1">
-                                <h4 className="font-bold text-gray-800">{rec.title}</h4>
-                                <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${rec.impact === "High Impact" ? "bg-red-100 text-red-800" : "bg-yellow-100 text-yellow-800"}`}>{rec.impact}</span>
+
+            <div className="space-y-4">
+                {recommendations.map((rec, index) => (
+                    <div key={index} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow duration-200">
+                        <div className="flex items-start justify-between">
+                            <div className="flex-1">
+                                <div className="flex items-center gap-3 mb-3">
+                                    <h3 className="font-semibold text-gray-900">{rec.title}</h3>
+                                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                                        rec.impact === "High Impact" 
+                                            ? "bg-red-50 text-red-700 border border-red-200" 
+                                            : "bg-amber-50 text-amber-700 border border-amber-200"
+                                    }`}>
+                                        {rec.impact}
+                                    </span>
+                                </div>
+                                
+                                <p className="text-gray-600 text-sm mb-4">{rec.description}</p>
+                                
+                                <button 
+                                    onClick={() => toggleExpanded(index)}
+                                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors duration-200"
+                                >
+                                    <span>{rec.suggestion}</span>
+                                    <ArrowRightIcon />
+                                </button>
                             </div>
-                            <p className="text-sm text-gray-600">{rec.description}</p>
-                            <button className="text-sm text-blue-600 hover:underline mt-1 block">{rec.suggestion} →</button>
+                            
+                            <button 
+                                className="ml-4 px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200"
+                                onClick={() => console.log('Apply recommendation:', rec.title)}
+                            >
+                                Apply
+                            </button>
                         </div>
-                    ))}
-                </div>
-            )}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
 
 const PricingTab = () => {
+    const [isAnalyzing, setIsAnalyzing] = useState(false);
     const [analysis, setAnalysis] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
+
+    const pricingData = {
+        currentPrice: 2500,
+        suggestedPrice: 2950,
+        confidence: 87,
+        competitorAvg: 2850,
+        priceHistory: [2400, 2450, 2500],
+        marketTrend: 'increasing'
+    };
 
     const handleAnalyzePricing = () => {
-        setIsLoading(true);
+        setIsAnalyzing(true);
         setTimeout(() => {
-            const mockData = { currentPrice: 2500, suggestedPrice: 2950, confidence: 87 };
-            setAnalysis(mockData);
-            setIsLoading(false);
-        }, 1500);
+            setIsAnalyzing(false);
+            setAnalysis(pricingData);
+        }, 2000);
     };
 
     return (
-        <div>
-            <div className="text-center mb-6">
-                <button onClick={handleAnalyzePricing} disabled={isLoading} className="bg-indigo-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-indigo-700 disabled:bg-indigo-300 transition-colors">
-                    {isLoading ? 'Analyzing Market...' : 'Analyze Market Pricing'}
+        <div className="space-y-6">
+            <div>
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">Pricing</h2>
+                <p className="text-gray-600 text-sm mb-6">Optimize your pricing strategy with market insights</p>
+                <button
+                    onClick={handleAnalyzePricing}
+                    className="px-4 py-2 mb-4 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                    disabled={isAnalyzing}
+                >
+                    {isAnalyzing ? 'Analyzing...' : 'Run Analysis'}
                 </button>
             </div>
-            {isLoading ? (
-                <div className="text-center text-gray-500">Generating pricing analysis...</div>
-            ) : analysis && (
-                <div className="p-4 bg-gray-50 rounded-lg">
-                    <div className="flex justify-between items-center mb-1">
-                        <h4 className="font-bold text-gray-800">Market Analysis</h4>
-                        <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">{analysis.confidence}% Confidence</span>
-                    </div>
-                    <p className="text-sm text-gray-600">Your product is priced below the market average.</p>
-                    <div className="mt-2 flex items-center justify-between">
-                         <div>
-                            <span className="text-sm text-gray-500">Current: ₹{analysis.currentPrice.toLocaleString()}</span>
-                            <p className="text-xl font-bold text-green-600">Suggested: ₹{analysis.suggestedPrice.toLocaleString()}</p>
+
+            {analysis && (
+                <div className="bg-white border border-gray-200 rounded-xl p-6">
+                    <div className="flex items-start justify-between mb-6">
+                        <div className="flex-1">
+                            <h3 className="font-semibold text-gray-900 mb-2">Market Price Analysis</h3>
+                            <p className="text-gray-600 text-sm mb-4">
+                                Your product is priced below the market average. Consider increasing price to maximize revenue.
+                            </p>
                         </div>
-                        <button className="text-sm font-semibold text-indigo-600 hover:text-indigo-800">Update Price →</button>
+                        <span className="px-3 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-xs font-medium">
+                            {analysis.confidence}% Confidence
+                        </span>
                     </div>
+
+                    <div className="grid grid-cols-2 gap-6 mb-6">
+                        <div className="text-center">
+                            <p className="text-sm text-gray-500 mb-1">Current Price</p>
+                            <p className="text-2xl font-bold text-gray-900">₹{analysis.currentPrice.toLocaleString('en-IN')}</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="text-sm text-gray-500 mb-1">Suggested Price</p>
+                            <p className="text-2xl font-bold text-green-600">₹{analysis.suggestedPrice.toLocaleString('en-IN')}</p>
+                        </div>
+                    </div>
+
+                    <div className="bg-gray-50 rounded-lg p-4 mb-4">
+                        <div className="flex justify-between items-center text-sm">
+                            <span className="text-gray-600">Market Average</span>
+                            <span className="font-medium">₹{analysis.competitorAvg.toLocaleString('en-IN')}</span>
+                        </div>
+                        <div className="flex justify-between items-center text-sm mt-2">
+                            <span className="text-gray-600">Potential Revenue Increase</span>
+                            <span className="font-medium text-green-600">+₹{(analysis.suggestedPrice - analysis.currentPrice).toLocaleString('en-IN')}</span>
+                        </div>
+                    </div>
+
+                    <button 
+                        className="w-full px-4 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200"
+                        onClick={() => console.log('Update pricing strategy')}
+                    >
+                        Update Pricing Strategy
+                    </button>
                 </div>
             )}
         </div>
     );
 };
 
-const MarketingTab = () => {
-    const [ideas, setIdeas] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+const defaultCampaigns = [
+    {
+        title: "Instagram Content Strategy",
+        description: "Post behind-the-scenes content of your pottery process to increase engagement.",
+        impact: "+45% Engagement",
+        type: "Social Media",
+        timeframe: "Start immediately"
+    },
+    {
+        title: "Customer Review Campaign", 
+        description: "Reach out to recent customers for reviews. You have a 92% satisfaction rate.",
+        impact: "Boost credibility",
+        type: "Reviews",
+        timeframe: "2-3 days"
+    },
+    {
+        title: "Seasonal Collection Launch",
+        description: "Create a Valentine's Day collection featuring your ceramics and romantic themes.",
+        impact: "New revenue stream",
+        type: "Product Launch", 
+        timeframe: "Launch in 2 weeks"
+    }
+];
 
-    const handleGenerateIdeas = () => {
-        setIsLoading(true);
+const MarketingTab = () => {
+    const [isAnalyzing, setIsAnalyzing] = useState(false);
+    const [campaigns, setCampaigns] = useState([]);
+
+    const handleAnalyzeMarketing = () => {
+        setIsAnalyzing(true);
         setTimeout(() => {
-            const mockData = [
-                { platform: "Instagram", idea: "Post behind-the-scenes content of your pottery process.", impact: "+45% Engagement" },
-                { platform: "Seasonal", idea: "Create a Valentine's Day collection featuring your ceramics.", impact: "Launch in 2 weeks" },
-                { platform: "Customer Reviews", idea: "Reach out to recent customers for reviews. You have a 92% satisfaction rate.", impact: "Start follow-up campaign" }
-            ];
-            setIdeas(mockData);
-            setIsLoading(false);
-        }, 1500);
+            setIsAnalyzing(false);
+            setCampaigns(defaultCampaigns);
+        }, 2000);
     };
 
     return (
-         <div>
-            <div className="text-center mb-6">
-                <button onClick={handleGenerateIdeas} disabled={isLoading} className="bg-indigo-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-indigo-700 disabled:bg-indigo-300 transition-colors">
-                    {isLoading ? 'Generating Ideas...' : 'Generate Marketing Ideas'}
+        <div className="space-y-6">
+            <div>
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">Marketing</h2>
+                <p className="text-gray-600 text-sm mb-6">Targeted strategies to boost your visibility and sales</p>
+                <button
+                    onClick={handleAnalyzeMarketing}
+                    className="px-4 py-2 mb-4 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                    disabled={isAnalyzing}
+                >
+                    {isAnalyzing ? 'Analyzing...' : 'Run Analysis'}
                 </button>
             </div>
-            {isLoading ? (
-                <div className="text-center text-gray-500">Brainstorming marketing strategies...</div>
-            ) : (
+
+            {campaigns.length > 0 && (
                 <div className="space-y-4">
-                    {ideas.map((idea, i) => (
-                        <div key={i} className="p-4 bg-gray-50 rounded-lg">
-                            <div className="flex justify-between items-center mb-1">
-                                <h4 className="font-bold text-gray-800">{idea.platform} Strategy</h4>
-                                 <p className="text-sm font-bold text-green-600">{idea.impact}</p>
+                    {campaigns.map((campaign, index) => (
+                        <div key={index} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow duration-200">
+                            <div className="flex items-start justify-between">
+                                <div className="flex-1">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <h3 className="font-semibold text-gray-900">{campaign.title}</h3>
+                                        <span className="px-3 py-1 bg-purple-50 text-purple-700 border border-purple-200 rounded-full text-xs font-medium">
+                                            {campaign.type}
+                                        </span>
+                                    </div>
+                                    
+                                    <p className="text-gray-600 text-sm mb-4">{campaign.description}</p>
+                                    
+                                    <div className="flex items-center gap-4 text-sm">
+                                        <div className="flex items-center gap-1">
+                                            <BulbIcon />
+                                            <span className="text-green-600 font-medium">{campaign.impact}</span>
+                                        </div>
+                                        <div className="text-gray-500">
+                                            {campaign.timeframe}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button 
+                                    className="ml-4 px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200"
+                                    onClick={() => console.log('Start campaign:', campaign.title)}
+                                >
+                                    Apply
+                                </button>
                             </div>
-                            <p className="text-sm text-gray-600">{idea.idea}</p>
-                            <button className="text-sm text-blue-600 hover:underline mt-1 block">Start Campaign →</button>
                         </div>
                     ))}
                 </div>
@@ -156,46 +300,67 @@ const AiGrowthAssistantModal = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-50 p-4">
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-2xl overflow-hidden animate-fade-in-up">
+      <div className="bg-gray-50 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden animate-fade-in-up">
         {/* Header */}
-        <div className="flex items-center justify-between pl-6 pr-4 py-4 border-b">
-          <div className="flex items-center space-x-3">
-             <div className="bg-purple-100 p-2 rounded-lg"><svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.636-6.364l-.707-.707M12 21v-1m0-16a9 9 0 11-9 9 9 9 0 019-9z" /></svg></div>
+        <div className="flex items-center justify-between px-8 py-6 bg-white border-b border-gray-200">
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.636-6.364l-.707-.707M12 21v-1m0-16a9 9 0 11-9 9 9 9 0 019-9z" />
+              </svg>
+            </div>
             <div>
-              <h2 className="text-lg font-semibold text-gray-900">AI Growth Assistant</h2>
-              <p className="text-sm text-gray-500">Personalized recommendations to boost your sales</p>
+              <h1 className="text-2xl font-bold text-gray-900">AI Growth Assistant</h1>
+              <p className="text-gray-600">Personalized recommendations to boost your sales</p>
             </div>
           </div>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 p-2 rounded-full hover:bg-gray-100"><CloseIcon /></button>
+          <button 
+            onClick={onClose} 
+            className="text-gray-400 hover:text-gray-600 p-2 rounded-xl hover:bg-gray-100 transition-colors duration-200"
+          >
+            <CloseIcon />
+          </button>
         </div>
         
         {/* Tab Navigation */}
-        <div className="px-6 pt-4 border-b border-gray-200">
-            <nav className="flex space-x-4">
-                {tabs.map(tab => (
-                    <button 
-                        key={tab.id} 
-                        onClick={() => setActiveTab(tab.id)}
-                        className={`flex items-center space-x-2 pb-3 px-1 border-b-2 font-semibold text-sm transition-colors ${ activeTab === tab.id ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300' }`}
-                    >
-                        {tab.icon}
-                        <span>{tab.name}</span>
-                    </button>
-                ))}
-            </nav>
+        <div className="px-8 py-4 bg-white border-b border-gray-200">
+          <nav className="flex space-x-1 bg-gray-100 rounded-xl p-1">
+            {tabs.map(tab => (
+              <button 
+                key={tab.id} 
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium text-sm transition-all duration-200 flex-1 justify-center ${
+                  activeTab === tab.id 
+                    ? 'bg-white text-gray-900 shadow-sm' 
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'
+                }`}
+              >
+                <span className={activeTab === tab.id ? 'text-blue-600' : ''}>{tab.icon}</span>
+                <span>{tab.name}</span>
+              </button>
+            ))}
+          </nav>
         </div>
 
         {/* Content */}
-        <div className="px-6 py-8 min-h-[250px]">
-            {activeTab === 'optimization' && <OptimizationTab />}
-            {activeTab === 'pricing' && <PricingTab />}
-            {activeTab === 'marketing' && <MarketingTab />}
+        <div className="px-8 py-8 bg-gray-50 overflow-y-auto" style={{ maxHeight: 'calc(90vh - 200px)' }}>
+          {activeTab === 'optimization' && <OptimizationTab />}
+          {activeTab === 'pricing' && <PricingTab />}
+          {activeTab === 'marketing' && <MarketingTab />}
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-4 bg-gray-50 flex justify-between items-center">
-          <p className="text-xs text-gray-500">AI recommendations are updated daily.</p>
-          <button onClick={handleDoneClick} className="px-5 py-2 bg-gray-800 text-white text-sm font-semibold rounded-lg hover:bg-gray-900">Done</button>
+        <div className="px-8 py-6 bg-white border-t border-gray-200 flex justify-between items-center">
+          <div className="flex items-center space-x-2 text-sm text-gray-500">
+            <BulbIcon />
+            <span>AI recommendations update daily based on market trends</span>
+          </div>
+          <button 
+            onClick={handleDoneClick} 
+            className="px-6 py-3 bg-gray-900 text-white font-medium rounded-xl hover:bg-gray-800 transition-colors duration-200"
+          >
+            Done
+          </button>
         </div>
       </div>
     </div>

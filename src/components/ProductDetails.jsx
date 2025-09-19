@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useCart } from '../features/customer-dashboard/components/useCart';
 import ChatModal from './chatbot/chat';
-import { MessageCircle, Send, X,  Zap, User } from 'react-feather';
+import { MessageCircle, Send, X, Zap, User, ShoppingCart } from 'react-feather';
 
 const products = [
   { id: '1', name: 'Blue Pottery Vase', description: 'A beautiful, hand-painted ceramic vase from Jaipur, known for its vibrant blue dye derived from cobalt oxide. A perfect centerpiece for any room.', price: 2500, stock: 15, imageUrl: '/images/Blue pottery.jpeg', region: 'North India', artisan: 'Ravi Kumar', category: 'Pottery', regionTag: 'Rajasthan' },
@@ -16,6 +17,8 @@ const products = [
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
+  const navigate = useNavigate();
+  const { addItem } = useCart() || {};
   const [product, setProduct] = useState(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
   useEffect(() => {
@@ -71,12 +74,28 @@ const ProductDetailPage = () => {
               <span className="text-sm text-gray-500">State: {product.regionTag}</span>
             </div>
 
-            <button
-              disabled={product.stock === 0}
-              className="w-full bg-slate-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-slate-900 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
-            >
-              Add to Cart
-            </button>
+            <div className="space-y-3">
+              <button
+                disabled={product.stock === 0}
+                onClick={() => {
+                  navigate('/checkout', {
+                    state: product
+                  });
+                }}
+                className="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center"
+              >
+                <ShoppingCart size={20} className="mr-2" />
+                Buy Now
+              </button>
+              <button
+                disabled={product.stock === 0}
+                onClick={() => addItem && addItem(product)}
+                className="w-full bg-slate-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-slate-900 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center"
+              >
+                <ShoppingCart size={20} className="mr-2" />
+                Add to Cart
+              </button>
+            </div>
           </div>
         </div>
       </div>
