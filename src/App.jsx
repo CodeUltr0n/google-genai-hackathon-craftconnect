@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-// We are keeping the AuthProvider and ProtectedRoute imports ready for when you turn them back on.
+
 import { AuthProvider } from './components/AuthenticateContext'; 
 // import ProtectedRoute from './components/ProtectedRouteComponent'; 
 
