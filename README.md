@@ -107,16 +107,19 @@ Even in this prototype, the focus is on:
 ---
 
 ## 📂 Project Structure
+
 ```bash
 frontend/
-├── public/        # Static assets
-├── src/
-│   ├── components/  # Reusable UI components
-│   ├── pages/       # Marketplace, Seller Hub, AI Assistant pages
-│   ├── context/     # React Context for state management
-│   ├── App.jsx      # Root component
-│   └── main.jsx     # Entry point
-└── package.json
+├── assets/          # Images, icons, and static resources
+├── components/      # Reusable UI components (Navbar, Cards, Modals, etc.)
+├── features/        # Core feature modules (Cart, Payments, Orders, AI Assistant, etc.)
+├── pages/           # Page-level components (Marketplace, Seller Hub, Buyer Dashboard)
+├── context/         # React Context for global state management
+├── App.css          # Global styles
+├── App.jsx          # Root component
+├── index.css        # Base styles
+├── main.jsx         # Application entry point
+└── package.json     # Project metadata and dependencies
 ```
 
  
