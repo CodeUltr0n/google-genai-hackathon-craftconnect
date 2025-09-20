@@ -36,11 +36,12 @@ Check out the live demo here: [Bharatiya Bazaar Live](https://bharatiya-bazaar-k
 
 ## Payment Gateway's and Order Confirmation 
 
-![Add to Cart Page](https://github.com/user-attachments/assets/49cac136-fa3b-4b37-bff6-585560b84b4d)
+![Add to Cart Page](https://github.com/user-attachments/assets/b16f5392-fb35-4a9c-9cc4-60e6b1cd1e17)
 
 ![Order Page](https://github.com/user-attachments/assets/9ed69400-5f73-4bec-b59e-229cd449915a)
 
-![Receipt Page](https://github.com/user-attachments/assets/9b67108a-5439-419b-817f-fa0df9f7009f)
+![Receipt Page](https://github.com/user-attachments/assets/30c0aff3-aae7-4601-a5e5-5b720b30ccbe)
+
 
 
 ## Team Details 
