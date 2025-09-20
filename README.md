@@ -90,7 +90,7 @@ Even in this prototype, the focus is on:
 - **Seller AI Chat UI:** Business assistant UI in seller dashboard.  
 - **Future Scope:** Ready-to-integrate full AI functionality for marketing, pricing, and optimization suggestions.  
 
-![AI Assistant Screenshot](https://github.com/user-attachments/assets/ccf54a32-1fd5-4439-8ea4-7d340521e07b)
+![AI Assistant Screenshot](https://github.com/user-attachments/assets/a4ee5195-cfea-418a-81c6-afd23769aaaf)
 
 ---
 
@@ -118,10 +118,7 @@ frontend/
 │   └── main.jsx     # Entry point
 └── package.json
 ```
-## Screenshots
-	•	Marketplace: 
- 	•	Seller Hub:
-	•	AI Growth Assistant UI:
+
  
 ## 🏆 Hackathon Submission
 This frontend prototype is submitted for the Google Gen AI Exchange Hackathon, demonstrating UI/UX and core features of Bharatiya Bazaar.
