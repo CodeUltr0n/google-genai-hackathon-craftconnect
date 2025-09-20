@@ -20,35 +20,31 @@ https://bharatiya-bazaar-ketan-chokkaras-team.onrender.com/
 
 ## Home Page 
 
-![Home Page](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 22 53 PM" src="https://github.com/user-attachments/assets/3445d4a5-7f3a-4f84-8083-5ce6f83ecf16" />
-)
+![Home Page](https://github.com/user-attachments/assets/3445d4a5-7f3a-4f84-8083-5ce6f83ecf16)
 
 ## Shop Page 
-![Shop Page](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 23 33 PM" src="https://github.com/user-attachments/assets/280b8b80-2682-42a4-b33d-8fbd66445fdb" />
-)
+![Shop Page](https://github.com/user-attachments/assets/280b8b80-2682-42a4-b33d-8fbd66445fdb)
 
 ## Product Page
-![Product Page](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 23 52 PM" src="https://github.com/user-attachments/assets/28ccebd5-a083-4404-b852-edac9079fcd0" />
-)
+![Product Page](https://github.com/user-attachments/assets/28ccebd5-a083-4404-b852-edac9079fcd0)
 
 ## Seller Dashboard 
 ![Seller Page](<img width="1464" height="928" alt="Screenshot 2025-09-20 at 8 25 46 PM" src="https://github.com/user-attachments/assets/a836b0ba-73d1-4259-9569-7fea6e03b91e" />
 )
 
 ## Ai Growth assistant for Sellers
-![Home Page](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 26 07 PM" src="https://github.com/user-attachments/assets/43613f39-e435-4ed7-88dd-2b7aee41dffc" />
+![Seller Page](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 26 07 PM" src="https://github.com/user-attachments/assets/3a8310ee-b307-450e-a6a8-73353eac26ab" />
 )
 
 ## Payment Gateway's and Order Confirmation 
 
-![Order Page](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 27 06 PM" src="https://github.com/user-attachments/assets/4266aee7-21cc-4ead-9f86-80e13f654c20" />
-)
+![Seller Page](https://github.com/user-attachments/assets/a836b0ba-73d1-4259-9569-7fea6e03b91e)
 
-![Payment Page](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 27 06 PM" src="https://github.com/user-attachments/assets/9aa25fde-de0d-41b6-ab2e-0439d2236e23" />
-)
+![Order Page](https://github.com/user-attachments/assets/4266aee7-21cc-4ead-9f86-80e13f654c20)
 
-![Payment Page](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 28 38 PM" src="https://github.com/user-attachments/assets/ed76ea91-f5d3-4eba-ba55-c506c26e1634" />
-)
+![Payment Page](https://github.com/user-attachments/assets/9aa25fde-de0d-41b6-ab2e-0439d2236e23)
+
+![Payment Page](https://github.com/user-attachments/assets/ed76ea91-f5d3-4eba-ba55-c506c26e1634)
 
 ## Team Details 
 
