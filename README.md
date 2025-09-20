@@ -29,12 +29,10 @@ https://bharatiya-bazaar-ketan-chokkaras-team.onrender.com/
 ![Product Page](https://github.com/user-attachments/assets/28ccebd5-a083-4404-b852-edac9079fcd0)
 
 ## Seller Dashboard 
-![Seller Page](<img width="1464" height="928" alt="Screenshot 2025-09-20 at 8 25 46 PM" src="https://github.com/user-attachments/assets/a836b0ba-73d1-4259-9569-7fea6e03b91e" />
-)
+![Seller Page](https://github.com/user-attachments/assets/a836b0ba-73d1-4259-9569-7fea6e03b91e)
 
 ## Ai Growth assistant for Sellers
-![Seller Page](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 26 07 PM" src="https://github.com/user-attachments/assets/3a8310ee-b307-450e-a6a8-73353eac26ab" />
-)
+![Seller Page](https://github.com/user-attachments/assets/3a8310ee-b307-450e-a6a8-73353eac26ab)
 
 ## Payment Gateway's and Order Confirmation 
 
