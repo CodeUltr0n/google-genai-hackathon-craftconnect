@@ -36,7 +36,7 @@ Check out the live demo here: [Bharatiya Bazaar Live](https://bharatiya-bazaar-k
 
 ## Payment Gateway's and Order Confirmation 
 
-![Payment](https://github.com/user-attachments/assets/5d327eef-1b76-4a84-8458-5f9532f70d8a)
+![Payment Screenshot](https://github.com/user-attachments/assets/5d327eef-1b76-4a84-8458-5f9532f70d8a)
 
 ![Order Page](https://github.com/user-attachments/assets/7fab6524-9a72-42d1-abd7-24440b7d68d7)
 
