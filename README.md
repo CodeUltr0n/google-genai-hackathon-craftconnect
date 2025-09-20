@@ -34,8 +34,7 @@ https://bharatiya-bazaar-ketan-chokkaras-team.onrender.com/
 
 ## Payment Gateway's and Order Confirmation 
 
-![Payment](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 28 18 PM" src="https://github.com/user-attachments/assets/5d327eef-1b76-4a84-8458-5f9532f70d8a" />
-)
+![Payment](https://github.com/user-attachments/assets/5d327eef-1b76-4a84-8458-5f9532f70d8a)
 
 ![Order Page](https://github.com/user-attachments/assets/4266aee7-21cc-4ead-9f86-80e13f654c20)
 
