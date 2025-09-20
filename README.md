@@ -16,8 +16,6 @@ https://bharatiya-bazaar-ketan-chokkaras-team.onrender.com/
 ## 🎥 Demo Video
 [Click the image below to watch our 3-minute frontend demo](#)  
 
-![Demo Screenshot](https://via.placeholder.com/600x300?text=Frontend+Demo+Screenshot)
-
 ## Home Page 
 
 ![Home Page](https://github.com/user-attachments/assets/3445d4a5-7f3a-4f84-8083-5ce6f83ecf16)
@@ -38,11 +36,12 @@ https://bharatiya-bazaar-ketan-chokkaras-team.onrender.com/
 
 ![Seller Page](https://github.com/user-attachments/assets/a836b0ba-73d1-4259-9569-7fea6e03b91e)
 
+![Seller Page](https://github.com/user-attachments/assets/a836b0ba-73d1-4259-9569-7fea6e03b91e)
+
 ![Order Page](https://github.com/user-attachments/assets/4266aee7-21cc-4ead-9f86-80e13f654c20)
 
 ![Payment Page](https://github.com/user-attachments/assets/9aa25fde-de0d-41b6-ab2e-0439d2236e23)
 
-![Payment Page](https://github.com/user-attachments/assets/ed76ea91-f5d3-4eba-ba55-c506c26e1634)
 
 ## Team Details 
 
