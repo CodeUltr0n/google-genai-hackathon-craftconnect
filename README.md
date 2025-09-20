@@ -34,14 +34,13 @@ https://bharatiya-bazaar-ketan-chokkaras-team.onrender.com/
 
 ## Payment Gateway's and Order Confirmation 
 
-![Seller Page](https://github.com/user-attachments/assets/a836b0ba-73d1-4259-9569-7fea6e03b91e)
-
-![Seller Page](https://github.com/user-attachments/assets/a836b0ba-73d1-4259-9569-7fea6e03b91e)
+![Payment Page](https://github.com/user-attachments/assets/9aa25fde-de0d-41b6-ab2e-0439d2236e23)
 
 ![Order Page](https://github.com/user-attachments/assets/4266aee7-21cc-4ead-9f86-80e13f654c20)
 
-![Payment Page](https://github.com/user-attachments/assets/9aa25fde-de0d-41b6-ab2e-0439d2236e23)
+![Receipt Page](https://github.com/user-attachments/assets/a836b0ba-73d1-4259-9569-7fea6e03b91e)
 
+![Add to Cart Page](https://github.com/user-attachments/assets/a836b0ba-73d1-4259-9569-7fea6e03b91e)
 
 ## Team Details 
 
