@@ -110,16 +110,28 @@ Even in this prototype, the focus is on:
 
 ```bash
 frontend/
-├── assets/          # Images, icons, and static resources
-├── components/      # Reusable UI components (Navbar, Cards, Modals, etc.)
-├── features/        # Core feature modules (Cart, Payments, Orders, AI Assistant, etc.)
-├── pages/           # Page-level components (Marketplace, Seller Hub, Buyer Dashboard)
-├── context/         # React Context for global state management
-├── App.css          # Global styles
-├── App.jsx          # Root component
-├── index.css        # Base styles
-├── main.jsx         # Application entry point
-└── package.json     # Project metadata and dependencies
+├── src/
+│   ├── App.css                # Global styles
+│   ├── App.jsx                # Root component
+│   ├── index.css              # Base styles
+│   ├── main.jsx               # Application entry point
+│   ├── assets/                # Static resources
+│   │   ├── animations/        # Lottie animation JSON files
+│   │   ├── images/            # All images (art, jewelry, pottery, etc.)
+│   │   └── videos/            # Video assets
+│   ├── bottom/                # Tradition-related components
+│   ├── components/            # Reusable UI components
+│   │   ├── checkout/          # Checkout & Payment components
+│   │   ├── chatbot/           # Chatbot component
+│   │   ├── header/            # Header component
+│   │   ├── hero/              # Hero section
+│   │   ├── orders/            # Order confirmation page
+│   │   └── ...                # Other shared UI (AboutPage, Auth, Sidebar, etc.)
+│   ├── features/              # Feature-specific modules
+│   │   ├── components/        # Category & product listing components
+│   │   ├── customer-dashboard # Customer-side dashboard (cart, favorites, messages, etc.)
+│   │   └── seller-dashboard   # Seller-side dashboard (analytics, growth assistant, products, etc.)
+└── vite.config.js             # Vite configuration
 ```
 
  
