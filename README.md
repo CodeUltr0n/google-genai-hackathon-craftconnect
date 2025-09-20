@@ -37,7 +37,6 @@ https://bharatiya-bazaar-ketan-chokkaras-team.onrender.com/
 ![Payment](https://github.com/user-attachments/assets/5d327eef-1b76-4a84-8458-5f9532f70d8a)
 
 ![Order Page](https://github.com/user-attachments/assets/4266aee7-21cc-4ead-9f86-80e13f654c20)
-
 ![Receipt Page](https://github.com/user-attachments/assets/a836b0ba-73d1-4259-9569-7fea6e03b91e)
 
 ![Add to Cart Page](https://github.com/user-attachments/assets/a836b0ba-73d1-4259-9569-7fea6e03b91e)
