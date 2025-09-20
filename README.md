@@ -10,8 +10,10 @@ This is a submission for the **Google Gen AI Exchange Hackathon**.
 > ⚠️ **Note:** This is the **frontend prototype**. AI assistant features and payment flows are functional **using mock data**. Full production will connect these features to the backend, database, and live APIs.
 ---
 
-## Live demo
-https://bharatiya-bazaar-ketan-chokkaras-team.onrender.com/
+![Team Page 3](https://github.com/user-attachments/assets/ffb6a943-2e12-4681-9f0c-7f8435ecc9ef)
+
+## Live Demo
+Check out the live demo here: [Bharatiya Bazaar Live](https://bharatiya-bazaar-ketan-chokkaras-team.onrender.com/)
 
 ## 🎥 Demo Video
 [Click the image below to watch our 3-minute frontend demo](#)  
@@ -44,17 +46,11 @@ https://bharatiya-bazaar-ketan-chokkaras-team.onrender.com/
 
 ## Team Details 
 
-![Team Page](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 24 31 PM" src="https://github.com/user-attachments/assets/f6208cef-2a40-43cf-90fb-dc271d2d962c" />
-)
+![Team Page 1](https://github.com/user-attachments/assets/e43d3c27-b0bf-45cd-903e-2513101d1f29)
 
-![Team Page](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 24 10 PM" src="https://github.com/user-attachments/assets/9b9f5310-b57c-4276-87fd-2d3845462d15" />
-)
+![Team Page 2](https://github.com/user-attachments/assets/ec3c473c-ffb9-4c29-a6c6-e9bee75f6526)
 
-![Team Page](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 24 20 PM" src="https://github.com/user-attachments/assets/c835ab8d-1da0-4537-b833-85b40eb6bc9a" />
-)
-
-![Team Page](<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 24 24 PM" src="https://github.com/user-attachments/assets/9e7a1edc-c932-4746-9da9-4741e0bc594d" />
-)
+![Team Page 4](https://github.com/user-attachments/assets/68b60f2d-e585-487f-b944-8e2ca3657a02)
 
 ---
 
@@ -75,7 +71,8 @@ Even in this prototype, the focus is on:
 - **Shop by Region Filter:** Filter crafts based on their geographical origin.  
 - **Detailed Product Pages:** Placeholder UI for descriptions, pricing, and artisan info.  
 
-![Marketplace Screenshot](https://via.placeholder.com/600x300?text=Marketplace+Screenshot)
+![Shop Page](https://github.com/user-attachments/assets/280b8b80-2682-42a4-b33d-8fbd66445fdb)
+
 
 ---
 
@@ -84,7 +81,7 @@ Even in this prototype, the focus is on:
 - **Add New Crafts Modal:** Form design for adding products.  
 - **Responsive UI:** Dynamic updates simulated for frontend demo.  
 
-![Seller Hub Screenshot](https://via.placeholder.com/600x300?text=Seller+Hub+Screenshot)
+![Seller Hub Screenshot](https://github.com/user-attachments/assets/d4598894-f970-4697-9444-9cb84943f626)
 
 ---
 
@@ -93,7 +90,7 @@ Even in this prototype, the focus is on:
 - **Seller AI Chat UI:** Business assistant UI in seller dashboard.  
 - **Future Scope:** Ready-to-integrate full AI functionality for marketing, pricing, and optimization suggestions.  
 
-![AI Assistant Screenshot](https://via.placeholder.com/600x300?text=AI+Assistant+Screenshot)
+![AI Assistant Screenshot](https://github.com/user-attachments/assets/ccf54a32-1fd5-4439-8ea4-7d340521e07b)
 
 ---
 
