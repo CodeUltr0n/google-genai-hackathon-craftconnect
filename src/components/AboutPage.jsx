@@ -15,7 +15,7 @@ const AboutPage = () => {
   const teamMembers = [
     { name: 'Ketan Chokkara', role: 'Frontend Developer & UI/UX Designer', imageUrl: './images/Frontend-dev.jpeg', description: 'Responsible for architecting and building the user interface, ensuring a seamless and engaging experience for both artisans and customers.' },
     { name: 'Ruchitankshi Thite', role: 'Backend Developer & Database Architect', imageUrl: './images/Backend-dev.jpeg', description: 'Responsible for building the robust MERN stack backend, managing the MongoDB database, and creating the APIs that power the platform.' },
-    { name: 'Sarveesh M', role: 'Flutter Developer & App Support', imageUrl: './images/App-dev.jpeg', description: 'Maintains and enhances the mobile application, ensuring smooth user experience and integrating new features.' },
+    { name: 'Sharveesh M', role: 'Flutter Developer & App Support', imageUrl: './images/App-dev.jpeg', description: 'Maintains and enhances the mobile application, ensuring smooth user experience and integrating new features.' },
   ];
 
   // Data for our new AI showcase section.
