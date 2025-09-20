@@ -18,6 +18,34 @@ Check out the live demo here: [Bharatiya Bazaar Live](https://bharatiya-bazaar-k
 ## 🎥 Demo Video
 [Click the image below to watch our 3-minute frontend demo](#)  
 
+## 📂 Project Structure
+
+```bash
+frontend/
+├── src/
+│   ├── App.css                # Global styles
+│   ├── App.jsx                # Root component
+│   ├── index.css              # Base styles
+│   ├── main.jsx               # Application entry point
+│   ├── assets/                # Static resources
+│   │   ├── animations/        # Lottie animation JSON files
+│   │   ├── images/            # All images (art, jewelry, pottery, etc.)
+│   │   └── videos/            # Video assets
+│   ├── bottom/                # Tradition-related components
+│   ├── components/            # Reusable UI components
+│   │   ├── checkout/          # Checkout & Payment components
+│   │   ├── chatbot/           # Chatbot component
+│   │   ├── header/            # Header component
+│   │   ├── hero/              # Hero section
+│   │   ├── orders/            # Order confirmation page
+│   │   └── ...                # Other shared UI (AboutPage, Auth, Sidebar, etc.)
+│   ├── features/              # Feature-specific modules
+│   │   ├── components/        # Category & product listing components
+│   │   ├── customer-dashboard # Customer-side dashboard (cart, favorites, messages, etc.)
+│   │   └── seller-dashboard   # Seller-side dashboard (analytics, growth assistant, products, etc.)
+└── vite.config.js             # Vite configuration
+```
+
 ## Home Page 
 
 ![Home Page](https://github.com/user-attachments/assets/3445d4a5-7f3a-4f84-8083-5ce6f83ecf16)
@@ -106,35 +134,6 @@ Even in this prototype, the focus is on:
 
 ---
 
-## 📂 Project Structure
-
-```bash
-frontend/
-├── src/
-│   ├── App.css                # Global styles
-│   ├── App.jsx                # Root component
-│   ├── index.css              # Base styles
-│   ├── main.jsx               # Application entry point
-│   ├── assets/                # Static resources
-│   │   ├── animations/        # Lottie animation JSON files
-│   │   ├── images/            # All images (art, jewelry, pottery, etc.)
-│   │   └── videos/            # Video assets
-│   ├── bottom/                # Tradition-related components
-│   ├── components/            # Reusable UI components
-│   │   ├── checkout/          # Checkout & Payment components
-│   │   ├── chatbot/           # Chatbot component
-│   │   ├── header/            # Header component
-│   │   ├── hero/              # Hero section
-│   │   ├── orders/            # Order confirmation page
-│   │   └── ...                # Other shared UI (AboutPage, Auth, Sidebar, etc.)
-│   ├── features/              # Feature-specific modules
-│   │   ├── components/        # Category & product listing components
-│   │   ├── customer-dashboard # Customer-side dashboard (cart, favorites, messages, etc.)
-│   │   └── seller-dashboard   # Seller-side dashboard (analytics, growth assistant, products, etc.)
-└── vite.config.js             # Vite configuration
-```
-
- 
 ## 🏆 Hackathon Submission
 This frontend prototype is submitted for the Google Gen AI Exchange Hackathon, demonstrating UI/UX and core features of Bharatiya Bazaar.
 
