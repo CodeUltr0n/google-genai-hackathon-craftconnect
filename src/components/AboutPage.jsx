@@ -52,9 +52,14 @@ const AboutPage = () => {
           {/* <div>
             <img src="/images/art.jpg" alt="Artisans at work" className="rounded-lg shadow-xl" />
           </div> */}
-          <div className="w-full max-w-lg h-80 rounded-lg overflow-hidden">
-  <video src={OurStoryVideo} autoPlay muted loop className="w-full h-full object-cover" />
-</div>
+          <div className="w-full max-w-lg">
+            <div className="h-80 rounded-lg overflow-hidden">
+              <video src={OurStoryVideo} autoPlay muted loop className="w-full h-full object-cover" />
+            </div>
+            <p className="text-xs text-gray-500 mt-2 text-center">
+              Video credit: Art By Sehgal – used for demo purposes only.
+            </p>
+          </div>
           <div className="text-left">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">The Story of Bharatiya Bazaar</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
@@ -83,17 +88,19 @@ const AboutPage = () => {
           </div>
       </div>
 
-       {/* App Support Screenshots Section */}
+{/* App Support Screenshots Section */}
       <div className="bg-gray-100 py-16">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-10">App Support</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-3">App Support</h2>
+          <p className='text-xl font-bold text-amber-600 mb-2'>Coming Soon </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <img src="/images/screenshot1.png" alt="App Screenshot 1" className="w-64 h-auto rounded-lg shadow-lg" />
-            <img src="/images/screenshot2.png" alt="App Screenshot 2" className="w-64 h-auto rounded-lg shadow-lg" />
+            <img src="/images/screenshot2.png" alt="App Screenshot 1" className="w-64 h-auto rounded-lg shadow-lg" />
+            <img src="/images/screenshot1.png" alt="App Screenshot 2" className="w-64 h-auto rounded-lg shadow-lg" />
             <img src="/images/screenshot3.png" alt="App Screenshot 3" className="w-64 h-auto rounded-lg shadow-lg" />
           </div>
         </div>
       </div>
+
 
       {/* Team Name Display */}
       <div className="bg-white py-8">
