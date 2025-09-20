@@ -1,5 +1,4 @@
-<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 22 35 PM" src="https://github.com/user-attachments/assets/d6f96888-4eb1-45bc-bd52-ff04218ab921" />
- /># Bharatiya Bazaar 🇮🇳
+<img width="1440" height="900" alt="Screenshot 2025-09-20 at 8 22 35 PM" src="https://github.com/user-attachments/assets/d6f96888-4eb1-45bc-bd52-ff04218ab921" /># Bharatiya Bazaar 🇮🇳
 [![Hackathon](https://img.shields.io/badge/Google%20GenAI-Hackathon-blue)](#)
 [![License](https://img.shields.io/badge/License-MIT-green)](#)
 [![Frontend](https://img.shields.io/badge/React-Vite-informational)](#)
