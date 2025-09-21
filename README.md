@@ -16,8 +16,7 @@ This is a submission for the **Google Gen AI Exchange Hackathon**.
 Check out the live demo here: [Bharatiya Bazaar Live](https://bharatiya-bazaar-ketan-chokkaras-team.onrender.com/)
 
 ## 🎥 Demo Video
-[![Watch the demo](<img width="1274" height="798" alt="Screenshot 2025-09-21 at 5 37 00 PM" src="https://github.com/user-attachments/assets/66f137de-6ee8-4e0e-8515-64e11323fddd" />
-)](https://drive.google.com/file/d/1l2YB4fGg2HDMdsr_5tKENkF--qdKYze8/view)
+[![Watch the demo](https://github.com/user-attachments/assets/66f137de-6ee8-4e0e-8515-64e11323fddd)](https://drive.google.com/file/d/1l2YB4fGg2HDMdsr_5tKENkF--qdKYze8/view)
 
 ## 📂 Project Structure
 
