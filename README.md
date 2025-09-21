@@ -10,13 +10,14 @@ This is a submission for the **Google Gen AI Exchange Hackathon**.
 > ⚠️ **Note:** This is the **frontend prototype**. AI assistant features and payment flows are functional **using mock data**. Full production will connect these features to the backend, database, and live APIs.
 ---
 
-![Team Page 3](https://github.com/user-attachments/assets/ffb6a943-2e12-4681-9f0c-7f8435ecc9ef)
-
 ## Live Demo
 Check out the live demo here: [Bharatiya Bazaar Live](https://bharatiya-bazaar-ketan-chokkaras-team.onrender.com/)
 
 ## 🎥 Demo Video
+
 [![Watch the demo](https://github.com/user-attachments/assets/66f137de-6ee8-4e0e-8515-64e11323fddd)](https://drive.google.com/file/d/1l2YB4fGg2HDMdsr_5tKENkF--qdKYze8/view)
+
+➡️ [Click here to watch the demo](https://drive.google.com/file/d/1l2YB4fGg2HDMdsr_5tKENkF--qdKYze8/view)
 
 ## 📂 Project Structure
 
