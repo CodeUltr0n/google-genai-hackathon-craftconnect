@@ -15,9 +15,11 @@ Check out the live demo here: [Bharatiya Bazaar Live](https://bharatiya-bazaar-k
 
 ## 🎥 Demo Video
 
-[![Watch the demo](https://github.com/user-attachments/assets/66f137de-6ee8-4e0e-8515-64e11323fddd)](https://drive.google.com/file/d/1l2YB4fGg2HDMdsr_5tKENkF--qdKYze8/view)
-
-➡️ [Click here to watch the demo](https://drive.google.com/file/d/1l2YB4fGg2HDMdsr_5tKENkF--qdKYze8/view)
+<p align="center">
+  <a href="https://drive.google.com/file/d/1l2YB4fGg2HDMdsr_5tKENkF--qdKYze8/view" target="_blank">
+    <img src="https://github.com/user-attachments/assets/66f137de-6ee8-4e0e-8515-64e11323fddd" alt="Click to watch the demo" width="800"/>
+  </a>
+</p>
 
 ## 📂 Project Structure
 
