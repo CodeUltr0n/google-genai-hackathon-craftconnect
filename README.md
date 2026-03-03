@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green)](#)
 [![Frontend](https://img.shields.io/badge/React-Vite-informational)](#)
 
-**An AI-Powered Marketplace for Artisans (Frontend Prototype)**  
+**An AI-Powered Marketplace for Artisans (Prototype)**  
 A **React.js frontend prototype** built to showcase the UI/UX and core features of Bharatiya Bazaar.  
 This is a submission for the **Google Gen AI Exchange Hackathon**.  
 
